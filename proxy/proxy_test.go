@@ -1,6 +1,7 @@
 package proxy
 
 import (
+	"fmt"
 	"log"
 	"testing"
 )
@@ -18,7 +19,8 @@ func TestProxy(t *testing.T) {
 			return nil
 		},
 	}
-	Create(beanProxy, []*ProxyInfo{proxyInfo})
+	err := Create(beanProxy, []*ProxyInfo{proxyInfo})
+	fmt.Println(err)
 	result := beanProxy.Add(1, "a", "c")
 	log.Println(result)
 }
